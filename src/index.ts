@@ -14,3 +14,9 @@ function calculateTax(income: number): number {
   }
   return income * 1.3;
 }
+
+let person: {
+  readonly id: number;
+  name: string;
+  born: Date;
+} = { id: 1, name: 'John Smith', born: new Date() };
