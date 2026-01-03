@@ -1,0 +1,6 @@
+{
+  "name": "typescript_trials",
+  "devDependencies": {
+    "prettier": "^3.7.4"
+  }
+}
