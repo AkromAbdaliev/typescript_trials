@@ -1,9 +1,16 @@
-let sales = 1_234_567;
-let course = 'TypeScript';
-let is_published = true;
+let tuple: [number, string] = [77, 'Cyberpunch'];
 
-function define(something: string) {
-  console.log(something);
+// use const for optimize enum
+const enum Size {
+  Small = 1,
+  Medium,
+  Large,
 }
 
-define(course);
+// use annotation for return types
+function calculateTax(income: number): number {
+  if (income < 50_000) {
+    return income * 1.2;
+  }
+  return income * 1.3;
+}
