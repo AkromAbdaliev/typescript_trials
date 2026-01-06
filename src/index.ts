@@ -1,15 +1,22 @@
 // Statis members
 class Server {
-  static users: number = 0;
+  private static _users: number = 0;
 
   join() {
-    Server.users++;
+    Server._users++;
   }
 
   leave() {
-    Server.users--;
+    Server._users--;
+  }
+
+  static get users() {
+    return Server._users;
   }
 }
+
+// Cannot access
+// Server._users = 12;
 
 let firstUser = new Server();
 firstUser.join();
