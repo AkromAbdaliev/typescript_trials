@@ -45,12 +45,11 @@ class Student extends Person {
     console.log('Taking test');
   }
 }
+class Teacher extends Person {
+  override get fullName() {
+    return `Professor ${super.fullName}`;
+  }
+}
 
-let policeman = new Policeman(123, 'John', 'Smith');
-let student = new Student(8945, 'Mike', 'Miller');
-
-console.log(policeman.fullName);
-console.log(student.fullName);
-
-policeman.makeArrest();
-student.takeTest();
+let teacher = new Teacher('John', 'Doe');
+console.log(teacher.fullName);
