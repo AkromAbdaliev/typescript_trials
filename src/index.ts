@@ -77,25 +77,38 @@
 // person.setName('Jonh');
 // console.log(person.getName());
 
-class Student {
-  constructor(
-    public readonly id: number,
-    public name: string,
-    private _balance: number,
-  ) {}
+// class Student {
+//   constructor(
+//     public readonly id: number,
+//     public name: string,
+//     private _balance: number,
+//   ) {}
 
-  public deposit(amount: number) {
-    if (amount <= 0) {
-      throw new Error('Invalid amount');
-    }
-    this._balance += amount;
-  }
+//   public deposit(amount: number) {
+//     if (amount <= 0) {
+//       throw new Error('Invalid amount');
+//     }
+//     this._balance += amount;
+//   }
 
-  get balance(): number {
-    return this._balance;
-  }
+//   get balance(): number {
+//     return this._balance;
+//   }
+// }
+
+// let student = new Student(12, 'John Doe', 0);
+// student.deposit(120000);
+// console.log(`John Doe's balance $${student.balance}`);
+
+// Index signature properties
+class IndexingSeats {
+  [seatNumber: string]: string;
 }
 
-let student = new Student(12, 'John Doe', 0);
-student.deposit(120000);
-console.log(`John Doe's balance $${student.balance}`);
+let seats = new IndexingSeats();
+seats.A1 = 'Some Dude';
+seats.A2 = 'Another Dude';
+seats['B1'] = 'Some Girl';
+seats['B2'] = 'Another Girl';
+
+console.log(seats);
