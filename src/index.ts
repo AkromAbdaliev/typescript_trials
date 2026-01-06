@@ -1,27 +1,56 @@
-// Statis members
-class Server {
-  private static _users: number = 0;
+// Inheritance
+class Person {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+  ) {}
 
-  join() {
-    Server._users++;
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
   }
 
-  leave() {
-    Server._users--;
+  walk() {
+    console.log('Walking');
   }
 
-  static get users() {
-    return Server._users;
+  talk() {
+    console.log('Talking');
   }
 }
 
-// Cannot access
-// Server._users = 12;
+class Policeman extends Person {
+  constructor(
+    public badgeNumber: number,
+    firstName: string,
+    lastName: string,
+  ) {
+    super(firstName, lastName);
+  }
 
-let firstUser = new Server();
-firstUser.join();
+  makeArrest() {
+    console.log('Making arrest');
+  }
+}
 
-let secondUser = new Server();
-secondUser.join();
+class Student extends Person {
+  constructor(
+    public studentNumber: number,
+    firstName: string,
+    lastName: string,
+  ) {
+    super(firstName, lastName);
+  }
 
-console.log(Server.users);
+  takeTest() {
+    console.log('Taking test');
+  }
+}
+
+let policeman = new Policeman(123, 'John', 'Smith');
+let student = new Student(8945, 'Mike', 'Miller');
+
+console.log(policeman.fullName);
+console.log(student.fullName);
+
+policeman.makeArrest();
+student.takeTest();
