@@ -1,55 +1,21 @@
-// Inheritance
-class Person {
-  constructor(
-    public firstName: string,
-    public lastName: string,
-  ) {}
+abstract class Shape {
+  constructor(public colour: string) {}
 
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  walk() {
-    console.log('Walking');
-  }
-
-  talk() {
-    console.log('Talking');
-  }
+  abstract render(): void;
 }
 
-class Policeman extends Person {
+class Circle extends Shape {
   constructor(
-    public badgeNumber: number,
-    firstName: string,
-    lastName: string,
+    public radius: number,
+    colour: string,
   ) {
-    super(firstName, lastName);
+    super(colour);
   }
 
-  makeArrest() {
-    console.log('Making arrest');
+  override render(): void {
+    console.log('Rendering a circle');
   }
 }
 
-class Student extends Person {
-  constructor(
-    public studentNumber: number,
-    firstName: string,
-    lastName: string,
-  ) {
-    super(firstName, lastName);
-  }
-
-  takeTest() {
-    console.log('Taking test');
-  }
-}
-class Teacher extends Person {
-  override get fullName() {
-    return `Professor ${super.fullName}`;
-  }
-}
-
-let teacher = new Teacher('John', 'Doe');
-console.log(teacher.fullName);
+let circle = new Circle(12, 'Orange');
+circle.render();
