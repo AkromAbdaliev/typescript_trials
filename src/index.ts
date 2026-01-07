@@ -1,26 +1,9 @@
-interface Animal {
-  sex: string;
-  eat(): void;
-  sleep(): void;
+class KeyValuePair<TKey, TValue> {
+  constructor(
+    public key: TKey,
+    public value: TValue,
+  ) {}
 }
 
-interface Mammals extends Animal {
-  milking(): void;
-}
-
-class Lion implements Mammals {
-  constructor(public sex: string) {}
-
-  milking(): void {
-    console.log('Milking');
-  }
-  eat(): void {
-    console.log('Eating meat');
-  }
-  sleep(): void {
-    console.log('Sleeping');
-  }
-}
-
-let mufassa = new Lion('male');
-mufassa.eat();
+let pair = new KeyValuePair<string, string>('Predator', 'Tiger');
+console.log(pair);
