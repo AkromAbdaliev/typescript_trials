@@ -1,22 +1,16 @@
-interface Result<T> {
-  data: T | null;
-  error: string | null;
+interface Person {
+  name: string;
 }
 
-function fetch<T>(url: string): Result<T> {
-  return { data: null, error: null };
+function echo<T extends number | string>(value: T): T {
+  return value;
 }
 
-interface User {
-  username: string;
+console.log(echo('Brad'));
+
+function echo2<T extends Person>(value: T): T {
+  return value;
 }
 
-interface Product {
-  title: string;
-}
-
-let result = fetch<Product>('url');
-result.data?.title;
-
-let result2 = fetch<User>('url');
-result2.data?.username;
+let result = echo2({ name: 'Mike' });
+console.log(result);
