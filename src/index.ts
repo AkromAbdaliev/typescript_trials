@@ -1,21 +1,26 @@
-abstract class Shape {
-  constructor(public colour: string) {}
-
-  abstract render(): void;
+interface Animal {
+  sex: string;
+  eat(): void;
+  sleep(): void;
 }
 
-class Circle extends Shape {
-  constructor(
-    public radius: number,
-    colour: string,
-  ) {
-    super(colour);
-  }
+interface Mammals extends Animal {
+  milking(): void;
+}
 
-  override render(): void {
-    console.log('Rendering a circle');
+class Lion implements Mammals {
+  constructor(public sex: string) {}
+
+  milking(): void {
+    console.log('Milking');
+  }
+  eat(): void {
+    console.log('Eating meat');
+  }
+  sleep(): void {
+    console.log('Sleeping');
   }
 }
 
-let circle = new Circle(12, 'Orange');
-circle.render();
+let mufassa = new Lion('male');
+mufassa.eat();
