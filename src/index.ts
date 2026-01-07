@@ -1,9 +1,7 @@
-class KeyValuePair<TKey, TValue> {
-  constructor(
-    public key: TKey,
-    public value: TValue,
-  ) {}
+class ArrayUtils {
+  static wrapInArray<T>(value: T) {
+    return [value];
+  }
 }
 
-let pair = new KeyValuePair<string, string>('Predator', 'Tiger');
-console.log(pair);
+let numbers = ArrayUtils.wrapInArray(1);
