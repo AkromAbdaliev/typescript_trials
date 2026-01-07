@@ -1,16 +1,10 @@
-interface Person {
-  name: string;
+function Component(constructor: Function) {
+  console.log('Component decorator called.');
+  constructor.prototype.uniqueId = Date.now();
+  constructor.prototype.insertInDom = () => {
+    console.log('Inserting component in the DOM');
+  };
 }
 
-function echo<T extends number | string>(value: T): T {
-  return value;
-}
-
-console.log(echo('Brad'));
-
-function echo2<T extends Person>(value: T): T {
-  return value;
-}
-
-let result = echo2({ name: 'Mike' });
-console.log(result);
+@Component
+class ProfileComponent {}
